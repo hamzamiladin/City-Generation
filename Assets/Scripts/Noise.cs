@@ -34,7 +34,6 @@ public class Noise : MonoBehaviour
         {
             for (int x = 0; x < mapWidth; x++)
             {
-
                 float amplitude = 1;
                 float frequency = 1;
                 float noiseHeight = 0;
@@ -43,31 +42,35 @@ public class Noise : MonoBehaviour
                 {
                     float sampleX = (x - halfWidth) / scale * frequency + octaveOffsets[i].x;
                     float sampleY = (y - halfHeight) / scale * frequency + octaveOffsets[i].y;
-                    
+
                     float perlinValue = Mathf.PerlinNoise(sampleX, sampleY) * 2 - 1;
                     noiseHeight += perlinValue * amplitude;
-                    
+
                     amplitude *= persistance;
                     frequency *= lacunarity;
                 }
-                if(noiseHeight > maxNoiseHeight)
+
+                if (noiseHeight > maxNoiseHeight)
                 {
                     maxNoiseHeight = noiseHeight;
-                }else if (noiseHeight < minNoiseHeight)
+                }
+                else if (noiseHeight < minNoiseHeight)
                 {
                     minNoiseHeight = noiseHeight;
                 }
+
                 noiseMap[x, y] = noiseHeight;
             }
         }
 
         for (int y = 0; y < mapHeight; y++)
         {
-            for (int x=0; x<mapWidth; x++)
+            for (int x = 0; x < mapWidth; x++)
             {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
             }
         }
+
         return noiseMap;
     }
 }

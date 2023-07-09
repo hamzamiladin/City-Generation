@@ -23,6 +23,9 @@ public class MapGenerator : MonoBehaviour
     public float meshHeightMultiplier;
     public AnimationCurve meshHeightCurve;
     public TerrainType[] regions;
+    public int cityGridSize;
+    public int cityGridSpacing;
+    public GameObject[] buildingPrefabs;
 
     public bool autoUpdate = false;
 
@@ -32,7 +35,7 @@ public class MapGenerator : MonoBehaviour
         float[,] noiseMap =
             Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, scale, octaves, persistence, lacunarity, offset);
 
-
+        TerrainType[] terrainMap = new TerrainType[mapChunkSize * mapChunkSize];
         Color[] colorMap = new Color[mapChunkSize * mapChunkSize];
         for (int y = 0; y < mapChunkSize; y++)
         {
@@ -44,12 +47,23 @@ public class MapGenerator : MonoBehaviour
                     if (currentHeight <= regions[i].height)
                     {
                         colorMap[y * mapChunkSize + x] = regions[i].color;
+                        terrainMap[y * mapChunkSize + x] = regions[i];
                         break;
                     }
                 }
             }
         }
 
+        for (int y = 0; y < mapChunkSize; y++)
+        {
+            for (int x = 0; x < mapChunkSize; x++)
+            {
+                if(terrainMap[y * mapChunkSize + x].isCityRegion)
+                {
+                    GenerateCity(x, y);
+                }
+            }
+        }
 
         DrawMap drawMap = FindObjectOfType<DrawMap>();
         if (drawMode == DrawMode.NoiseMap)
@@ -79,6 +93,32 @@ public class MapGenerator : MonoBehaviour
             octaves = 0;
         }
     }
+    
+    private void GenerateCity(int x, int y)
+    {
+        Debug.Log($"Generating city at ({x},{y})");
+    
+        for (int i = -cityGridSize / 2; i < cityGridSize / 2; i++)
+        {
+            for (int j = -cityGridSize / 2; j < cityGridSize / 2; j++)
+            {
+                // Select a random prefab from the array.
+                GameObject buildingPrefab = buildingPrefabs[UnityEngine.Random.Range(0, buildingPrefabs.Length)];
+            
+                Vector3 position = new Vector3(x + i, 0, y + j);
+                GameObject newBuilding = Instantiate(buildingPrefab, position, Quaternion.identity, transform);
+            
+                if (newBuilding == null)
+                {
+                    Debug.LogError($"Failed to instantiate building at ({position.x},{position.y},{position.z})");
+                }
+                else
+                {
+                    Debug.Log($"Building created at ({position.x},{position.y},{position.z})");
+                }
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -87,4 +127,5 @@ public struct TerrainType
     public string name;
     public float height;
     public Color color;
+    public bool isCityRegion;
 }
