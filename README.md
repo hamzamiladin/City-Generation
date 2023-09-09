@@ -1,16 +1,18 @@
-Welcome to my Procedurally Generated Terrain repository! Building upon the foundational knowledge of generating terrain, this project takes a step further into the vast world of procedural generation. Currently, this project showcases the implementation of procedurally generated terrain using various methods and algorithms. The next phase, which is currently in the works, aims to bring procedurally generated streets, eventually paving the way to full-fledged cities.
+Welcome to the Procedurally Generated Terrain Repository. This platform expands upon the fundamental principles of terrain generation, integrating advanced procedural generation methodologies. Currently, the repository provides insights into terrain generation using multiple algorithms and methods. The subsequent phase, now under development, will incorporate algorithms for procedurally generated streets, culminating in comprehensive city models.
 
-The dream is to have an intricate cityscape, brought to life from the ground up, with every nook, cranny, street, and skyline uniquely created by algorithms.
+Objective: Develop algorithmically-constructed cityscapes, ensuring every element—from basic terrain to complex urban designs—is generated with precision and uniqueness.
 
 Current Features:
 
-Procedurally Generated Terrain: Using multiple techniques, the project currently offers diverse terrain landscapes. These terrains serve as the base upon which our future cities will stand.
-Roadmap:
+Procedurally Generated Terrain: Through the application of several techniques and computational algorithms, the project delivers a range of terrain topographies. These serve as the foundational structures for subsequent urban development.
+Development Roadmap:
 
-Procedurally Generated Streets: The next big milestone! Streets are the veins of any city, and this upcoming feature will weave roads in unique patterns across our terrains.
-Procedurally Generated Cities: The grand vision! Following the streets, the project aims to populate the landscape with buildings, parks, landmarks, and more.
+Procedurally Generated Streets: Streets form the core infrastructure of urban models. The forthcoming addition to the repository will algorithmically construct streets, ensuring integration with the existing terrains.
+
+Procedurally Generated Cities: The long-term goal is the creation of algorithmic cityscapes. After establishing the street networks, the endeavor will be to populate these terrains with algorithmically generated structures, parks, landmarks, and other urban elements.
+
 Contribution & Feedback:
 
-This project is an evolving landscape (pun intended). While the journey from terrains to cities is challenging, contributions, suggestions, and feedback will go a long way in refining the end product.
+The project's trajectory, from terrain development to comprehensive urban designs, is complex and requires continuous refinement. Contributions in the form of algorithm enhancements, feedback, and suggestions are invaluable for the project's evolution.
 
-Note: As the project is in its developing stages, some features are still being worked on. Kindly be patient, and keep an eye out for exciting updates! 
+Note: As the project is actively under development, certain functionalities are in their refinement stages. We appreciate your patience and encourage regular visits for the latest algorithmic advancements.
