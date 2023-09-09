@@ -1,4 +1,4 @@
-Welcome to my Procedurally Generated Cities repository! Building upon the foundational knowledge of generating terrain, this project takes a step further into the vast world of procedural generation. Currently, this project showcases the implementation of procedurally generated terrain using various methods and algorithms. The next phase, which is currently in the works, aims to bring procedurally generated streets, eventually paving the way to full-fledged cities.
+Welcome to my Procedurally Generated Terrain repository! Building upon the foundational knowledge of generating terrain, this project takes a step further into the vast world of procedural generation. Currently, this project showcases the implementation of procedurally generated terrain using various methods and algorithms. The next phase, which is currently in the works, aims to bring procedurally generated streets, eventually paving the way to full-fledged cities.
 
 The dream is to have an intricate cityscape, brought to life from the ground up, with every nook, cranny, street, and skyline uniquely created by algorithms.
 
